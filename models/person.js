@@ -28,5 +28,3 @@ personSchema.set('toJSON', {
 module.exports = mongoose.model('Person', personSchema)
 
 
-// MONGODB_URI = `mongodb+srv://tmonroe19:${password}@cluster0.r5b4z.mongodb.net/personApp?retryWrites=true&w=majority`
-// PORT = 3001

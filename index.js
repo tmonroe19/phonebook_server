@@ -30,18 +30,17 @@ app.post('/api/persons', (request, response) => {
         return response.status(400).json({ error: 'The name is missing' })
     }
 
-    if (number === undefined) {
-        return response.status(400).json({ error: 'The number is missing' })
-    }
+    // if (number === undefined) {
+    //     return response.status(400).json({ error: 'The number is missing' })
+    // }
 
-    if (persons.some(element => element.name == name)) {
-        return response.status(400).json({
-            error: 'The name already exists in the phonebook'
-        })
-    }
+    // if (persons.some(element => element.name == name)) {
+    //     return response.status(400).json({
+    //         error: 'The name already exists in the phonebook'
+    //     })
+    // }
 
     const person = new Person({
-        id: generateID(),
         name: name,
         number: number
     })
