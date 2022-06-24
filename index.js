@@ -18,7 +18,7 @@ app.use(cors())
 app.use(express.static('build'))
 
 app.get('/', (req, res) => {
-    res.send(<h1>Hello World!</h1>)
+    res.send('<h1>Hello World!</h1>')
 })
 
 app.post('/api/persons', (request, response) => {
