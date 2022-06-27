@@ -40,32 +40,3 @@ Person.find({}).then(result => {
     })
     mongoose.connection.close()
 })
-
-
-// mongoose
-//     .connect(url)
-
-//     .then((result) => {
-//         if (personName != null && personNumber != null) {
-//             const person = new Person({
-//                 name: personName,
-//                 number: personNumber
-//             })
-//             return person.save()
-//         }
-//     })
-//     .then(() => {
-//         if (personName != null && personNumber != null) {
-//             console.log(`added ${personName} number ${personNumber} to phonebook`)
-//             return mongoose.connection.close()
-//         } else {
-//             console.log('phonebook:')
-//             Person.find({}).then(result => {
-//                 result.forEach(person => {
-//                     console.log(`${person.name} ${person.number}`)
-//                 })
-//                 mongoose.connection.close()
-//             })
-//         }
-//     })
-//     .catch((err) => console.log(err))
