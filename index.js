@@ -16,7 +16,7 @@ app.use(requestLogger)
 app.use(cors())
 app.use(express.static('build'))
 
-app.post('/api/persons', (request, response) => {
+app.post('/api/persons', (request, response, next) => {
     const body = request.body
     const name = body.name
     const number = body.number
@@ -35,15 +35,10 @@ app.post('/api/persons', (request, response) => {
     })
 
     person.save()
-        .then(savedPerson => {
-            response.json(savedPerson)
-        })
-        .catch(error => {
-            // next(error)
-            console.log(error.response.data)
-        })
-
-
+    .then(savedPerson => {
+        response.json(savedPerson)
+    })
+    .catch(error => next(error))
 })
 
 app.get('/api/persons', (request, response) => {
