@@ -39,7 +39,7 @@ app.post('/api/persons', (request, response) => {
             response.json(savedPerson)
         })
         .catch(error => {
-            next(error)
+            // next(error)
             console.log(error.response.data)
         })
 
