@@ -34,10 +34,16 @@ app.post('/api/persons', (request, response) => {
         number: number
     })
 
-    person.save().then(savedPerson => {
-        response.json(savedPerson)
-    })
-        .catch(error => next(error))
+    person.save()
+        .then(savedPerson => {
+            response.json(savedPerson)
+        })
+        .catch(error => {
+            next(error)
+            console.log(error.response.data)
+        })
+
+
 })
 
 app.get('/api/persons', (request, response) => {
