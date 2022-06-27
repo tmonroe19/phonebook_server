@@ -19,7 +19,8 @@ const personSchema = new mongoose.Schema({
         required: true
     },
     number: {
-        required: true
+        type: String
+        // required: true
     }
 })
 
