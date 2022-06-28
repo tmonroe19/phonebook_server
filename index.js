@@ -38,10 +38,13 @@ app.post('/api/persons', (request, response, next) => {
     .then(savedPerson => {
         response.json(savedPerson)
     })
-    .catch(error => next(error))
+    .catch(error => {
+        console.log(error)
+        next(error)
+    })
 })
 
-app.get('/api/persons', (request, response) => {
+app.get('/api/persons', (request, response, next) => {
     Person.find({}).then(persons => {
         response.json(persons)
     })
@@ -55,7 +58,7 @@ app.delete('/api/persons/:id', (request, response, next) => {
         .catch(error => next(error))
 })
 
-app.get('/api/persons/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response, next) => {
     Person.findById(request.params.id)
         .then(person => {
             if (person) {

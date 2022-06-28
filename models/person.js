@@ -19,8 +19,13 @@ const personSchema = new mongoose.Schema({
         required: true
     },
     number: {
-        type: String
-        // required: true
+        type: String,
+        validate: {
+            validator: function (v) {
+                return (/\d{2}-\d{7}/.test(v)) || (/\d{3}-\d{8}/.test(v));
+            }
+        },
+        required: true
     }
 })
 
@@ -33,5 +38,3 @@ personSchema.set('toJSON', {
 })
 
 module.exports = mongoose.model('Person', personSchema)
-
-
